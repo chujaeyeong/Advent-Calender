@@ -70,23 +70,3 @@ const modalMessageList = [
     { "number": 24, "message": "12월, 모두에게 기쁨과 행복이 넘치는 달이에요." }
 ];
 
-// 전역에서 한 번만 실행되도록 클릭 이벤트 리스너를 등록
-const doors = document.querySelectorAll('.door');
-doors.forEach((door, index) => {
-    door.addEventListener('click', () => {
-        // 상위 div의 class 번호를 찾아서 image url에 사용합니다
-        const imageUrl = `../css/image/card/card-${index + 1}.png`;
-
-        // 'back' 클래스를 가진 요소를 찾아 스타일을 가져옵니다.
-        const doorDiv = document.querySelector(`.day-${index + 1}`)
-        const backDiv = doorDiv.querySelector(`.back`);
-
-        const style = window.getComputedStyle(backDiv);
-        const pTag = backDiv.querySelector('p')
-        const text = modalMessageList[index]['message']
-
-        // showModal 함수를 호출하여 모달을 표시합니다.
-        showModal(imageUrl, text);
-        // alert('이벤트 캘린더를 엽니다.');
-    });
-});
